@@ -1,0 +1,149 @@
+body {
+  background: linear-gradient(to bottom left, #7f99c9, #1c1c5ad2);
+  margin: 0;
+  font-weight: 400;
+  position: relative;
+}
+button {
+  color: #fff;
+  height: fit-content;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+input,
+select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #7f99c9;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.container {
+  width: 80%;
+  margin: 5rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#deleteAll,
+#delete {
+  background-color: #f00;
+}
+.header h1 {
+  margin-top: 0;
+}
+.task-details,
+.fast-control .uncompleted-tasks,
+.completed-tasks {
+  margin: 1rem 0;
+}
+.task-details div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.task-details label {
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+}
+.task-details .error {
+  color: rgb(242, 63, 63);
+  margin: 0;
+  border-radius: 5px;
+  opacity: 1;
+  transition: opacity 0.5 ease-in-out;
+}
+#addBtn,
+#completed {
+  background-color: rgb(2, 125, 2);
+}
+#addBtn {
+  margin-top: 1rem;
+}
+.fast-control {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.fast-control input {
+  width: 80%;
+}
+table {
+  width: 100%;
+  text-align: center;
+  border-spacing: 0 1rem;
+  border-collapse: separate;
+}
+table tr {
+  padding: 0.5rem;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.actions button {
+  margin: 0 1rem;
+}
+@media (max-width: 767px) {
+  .actions {
+    flex-direction: column;
+  }
+  .actions button {
+    margin: 0.5rem;
+  }
+  .fast-control {
+    display: block;
+  }
+  .fast-control input {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+#update {
+  background-color: #f8c807;
+}
+
+.effect {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#notification {
+  position: fixed;
+  top: 90%;
+  right: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  color: #fff;
+  background-color: rgba(2, 125, 2, 0.712);
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+.shown {
+  opacity: 1;
+  visibility: visible;
+}
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}

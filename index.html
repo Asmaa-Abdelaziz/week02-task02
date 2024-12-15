@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Addist</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <div class="header">
+        <h1>To-Do | Add Your Tasks</h1>
+      </div>
+      <section class="task-details">
+        <div>
+          <label for="task title">Task Title:</label>
+          <input
+            type="text"
+            id="taskTitle"
+            placeholder="Enter Your Task Title"
+          />
+          <p class="error hidden">You must type your task title!!!</p>
+        </div>
+        <div>
+          <label for="task priority">Task Priority:</label>
+          <select name="priority" id="taskPriority">
+            <option value="high">High</option>
+            <option value="meduim">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+        <button id="addBtn">ADD To-Do</button>
+      </section>
+      <div class="fast-control">
+        <h2>My Dialy Tasks</h2>
+        <button id="deleteAll">Delete All Tasks</button>
+      </div>
+      <div class="uncompleted-tasks">
+        <h2>Uncompleted Tasks</h2>
+        <table id="uncompletedTable">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Title</th>
+              <th>Priority</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="completed-tasks">
+        <h2>Completed Tasks</h2>
+        <table id="completedTable">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Title</th>
+              <th>Priority</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div id="notification" class="hidden"></div>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>
