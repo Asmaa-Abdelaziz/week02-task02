@@ -8,8 +8,11 @@ const deleteAllBtn = document.getElementById("deleteAll");
 const notification = document.getElementById("notification");
 const titleError = document.querySelector(".error");
 
+//creatimg tasks array to get all tasks from local storage, if there is no elements it will be empty.
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 // console.log(typeof tasks, tasks);
+
+//creating a function that takes tasks array and draw table rows for completed and not completed tasks with simple conditions.
 function drawTable(tasks) {
   uncompletedTable.innerHTML = "";
   completedTable.innerHTML = "";
@@ -35,10 +38,12 @@ function drawTable(tasks) {
     }
   });
 }
+//displayRows function => after every change i can call it to set the new tasks items to local storage and calling drawTable function to display rows. 
 function displayRows() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
   drawTable(tasks);
 }
+// function to make notification appears for 1 second.
 function toggleNotification() {
   notification.classList.remove("hidden");
   notification.classList.add("shown");
@@ -47,6 +52,8 @@ function toggleNotification() {
     notification.classList.remove("shown");
   }, 1000);
 }
+//After add button be clicked a new task object created takes the task title and priority if the task title isn't empty then it is pushed to tasks array (that is will stored in local storage).
+//After set this value to local storage the input returns empty and the notification appears with successfully added content
 addBtn.addEventListener("click", () => {
   let title = taskTitle.value.trim();
   let priority = taskPriority.value;
@@ -55,6 +62,7 @@ addBtn.addEventListener("click", () => {
     titleError.classList.remove("hidden");
   } else {
     titleError.classList.add("hidden");
+    // setting the completed value of the task with false to be drawn in the uncompleted table
     let newTask = { title, priority, completed: false };
     tasks.push(newTask);
     displayRows();
@@ -63,6 +71,7 @@ addBtn.addEventListener("click", () => {
     toggleNotification();
   }
 });
+// delete all tasks with confirmation then drawing the tables with empty array.
 deleteAllBtn.addEventListener("click", () => {
   if (tasks.length > 0) {
     if (confirm("Are you sure you want to delete all tasks?!")) {
@@ -75,13 +84,14 @@ deleteAllBtn.addEventListener("click", () => {
     alert("There is no tasks to be deleted");
   }
 });
-
+//delete the selected task from the array then display rows.
 function deleteTask(index) {
   tasks.splice(index, 1);
   notification.innerHTML = "Successfully Deleted";
   toggleNotification();
   displayRows();
 }
+//update the selected task title then display rows.
 function updateTask(index) {
   const newTitle = prompt("Enter the new task title:", tasks[index].title);
   if (newTitle !== null) {
@@ -91,7 +101,7 @@ function updateTask(index) {
     displayRows();
   }
 }
-
+//change the completed value of the task to true so that it will be drawn in the completed table.
 function completeTask(index) {
   tasks[index].completed = true;
   notification.innerHTML = `Successfully Completed`;
